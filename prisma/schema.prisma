@@ -11,18 +11,38 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name  String
+  email String @unique
   tasks Task[]
 }
 
 model Task {
-  id          Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   description String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  done        Boolean  @default(false)
-  author      User?    @relation(fields: [authorId], references: [id])
-  authorId    Int?
+  done        Boolean @default(false)
+  authorId    String
+  author      User    @relation(fields: [authorId], references: [id])
+}
+
+model Street {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name String
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name String
 }
