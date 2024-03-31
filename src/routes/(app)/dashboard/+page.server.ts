@@ -8,4 +8,4 @@ export const load = (async () => {
     })
 
     return { tasks: response };
-}) satisfies PageServerLoad;
+}) satisfies PageServerLoad; 

@@ -3,6 +3,8 @@ node_modules
 /build
 /.svelte-kit
 /package
+/prisma/migrations
+/prisma/db
 .env
 .env.*
 !.env.example
